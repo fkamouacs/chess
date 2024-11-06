@@ -3,7 +3,6 @@ package engine
 import (
 	"chess/utils"
 	"errors"
-	"fmt"
 )
 
 // 1D 12x10 array
@@ -19,7 +18,7 @@ var Board = [120]int {
 	
 	99, 16, 17, 18, 19, 20, 21, 22, 23, 99,
 	
-	99, 24, 25, 26, 27, 28, 29, 30, 31, 99,
+	99, -24, 0, 0, 27, 28, 29, 30, 31, 99,
 	
 	99, 32, 33, 34, 35, 36, 37, 38, 39, 99,
 	
@@ -36,36 +35,36 @@ var Board = [120]int {
 	};  
 
 
-
 func GetAlgebraic (index int) (string, int, error) {
 	twoDRep, err := GetRowAndColumn(index)
 	if (err != nil) {
 		return "", -1, err
 	}
 
-	var file = utils.FileMap[twoDRep[1]]
-	var rank = twoDRep[0] + 1
+	var file = utils.FileMap[twoDRep[0]]
+	var rank = twoDRep[1] + 1
 
 	return file, rank, nil
 }
 
 func GetRowAndColumn (index int) ([]int, error){
-	// square = rank * 8 + file 
-	
-	index = index - 21
+	const INIT_PADDING = 21
+	const MAX_INDEX = 98
 
-	fmt.Println(index)
-	
-	if (index < 0  || index > 63) {
+	if (index < INIT_PADDING || index > MAX_INDEX || index % 10 == 0 || index % 10 == 9) {
 		return nil, errors.New("index out of bounds")
 	}
 
-	var file int = ((index - index/ 10)  / 10) 
+	// index = rank * 10 + file + 21
+	// rank = (index - 21) / 10 
+	// file = (index - 21) - rank * 10
 
-	var rank = (index - (file * 10)) 
+	square := index - INIT_PADDING
+
+	rank := square / 10
+	file := square - rank * 10
 	
-	var result = []int{rank,file}
-	fmt.Println(result)
+	var result = []int{file,rank}
 
 	return result, nil
 }

@@ -5,7 +5,9 @@ import (
 	"fmt"
 )
 
-func main () {
-	fmt.Println(engine.Board[31])
-	fmt.Println(engine.GetAlgebraic(31))
+func main() {
+	// fmt.Println(engine.Board[39])
+	// fmt.Println(engine.GetAlgebraic(39))
+
+	fmt.Println(engine.GetLegalMoves(1, 42))
 }
