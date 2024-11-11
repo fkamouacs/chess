@@ -26,9 +26,16 @@ func GetLegalMoves(piece int, startPos int) []int {
 	return legalMoves
 }
 
+
+// TODO pawn move 2 forward on start square
+// returns an array of legal moves 
 func PawnLegalMoves(startPos int, color int) []int {
 
 	var legalMoves []int
+
+	// first check in separate function if enpassant
+
+
 	var moveForwardIndex, moveLeftIndex, moveRightIndex int
 
 	var canCaptureLeft, canCaptureRight bool
