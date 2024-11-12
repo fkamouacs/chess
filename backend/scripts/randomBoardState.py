@@ -144,16 +144,14 @@ def print_board(board):
     print("")
     temp_board = [s for s in board if s != 99]
     print ("   a  b  c  d  e  f  g  h", end="")
-    board_string += "   a  b  c  d  e  f  g  h"
-
+   
     for e in temp_board:
      
         if counter % 8 == 0:
             print("\n")  
             board_string += "\n"
             print(int(counter / 8) + 1, " ", end="")
-            board_string += str(int(counter /8) + 1)
-            board_string += " "
+          
 
         print(e, end="")
         print(" ", end="")

@@ -28,3 +28,13 @@ var PieceEncoding = map[string]int{
 	"white king":   6,
 	"black king":   -6,
 }
+
+func RemoveElement(slice []int, value int) []int {
+	result := []int{}
+	for _, v := range slice {
+		if v != value {
+			result = append(result, v)
+		}
+	}
+	return result
+}
