@@ -3,6 +3,7 @@ package engine
 import (
 	"chess/utils"
 	"errors"
+	"fmt"
 )
 
 // 1D 12x10 array
@@ -68,3 +69,68 @@ func GetRowAndColumn (index int) ([]int, error){
 
 	return result, nil
 }
+
+func PopulateBoard(board []int) []int{
+	var result = []int {
+
+		99, 99, 99, 99, 99, 99, 99, 99, 99, 99,
+		
+		99, 99, 99, 99, 99, 99, 99, 99, 99, 99,
+		
+		99, 0, 1, 2, 3, 4, 5, 6, 7, 99,
+		
+		99, 8, 9, 10, 11, 12, 13, 14, 15, 99,
+		
+		99, 16, 17, 18, 19, 20, 21, 22, 23, 99,
+		
+		99, 24, 25, 26, 27, 28, 29, 30, 31, 99,
+		
+		99, 32, 33, 34, 35, 36, 37, 38, 39, 99,
+		
+		99, 40, 41, 42, 43, 44, 45, 46, 47, 99,
+		
+		99, 48, 49, 50, 51, 52, 53, 54, 55, 99,
+		
+		99, 56, 57, 58, 59, 60, 61, 62, 63, 99,
+		
+		99, 99, 99, 99, 99, 99, 99, 99, 99, 99,
+		
+		99, 99, 99, 99, 99, 99, 99, 99, 99, 99,
+		
+		};
+		j := 21
+		for i := 0; i < len(board); i++  {
+
+			if j % 10 == 9 {
+				j += 2
+			}
+			result[j] = board[i] 
+			j++
+		}
+		return result
+}
+
+
+func PrintBoard(board []int) {
+	temp_board := utils.RemoveElement(board, 99)
+	
+	fmt.Print("   a  b  c  d  e  f  g  h")
+
+	for i := 0; i < len(temp_board); i++ {
+		
+		if i % 8 == 0 {
+			fmt.Println("")
+			fmt.Print(int(i / 8) + 1, " ")
+		}
+		
+		fmt.Print(temp_board[i], " ")
+
+		if (temp_board[i] >= 0) {
+			fmt.Print(" ")
+		}
+		
+		
+    }
+	fmt.Println("")
+}
+
