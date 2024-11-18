@@ -9,6 +9,7 @@ type BoardState struct {
 	CanBlackCastleKing  bool
 	CanBlackCastleQueen bool
 	IsEnPassant         bool
+	CurrentMoveNum      int
 }
 
 type Move struct {

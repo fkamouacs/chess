@@ -13,20 +13,36 @@ var FileMap = map[int]string{
 	7: "h",
 }
 
-var PieceEncoding = map[string]int{
-	"empty":        0,
-	"white pawn":   1,
-	"black pawn":   -1,
-	"white knight": 2,
-	"black knight": -2,
-	"white bishop": 3,
-	"black bishop": -3,
-	"white rook":   4,
-	"black rook":   -4,
-	"white queen":  5,
-	"black queen":  -5,
-	"white king":   6,
-	"black king":   -6,
+// var PieceEncoding = map[string]int{
+// 	"empty":        0,
+// 	"white pawn":   1,
+// 	"black pawn":   -1,
+// 	"white knight": 2,
+// 	"black knight": -2,
+// 	"white bishop": 3,
+// 	"black bishop": -3,
+// 	"white rook":   4,
+// 	"black rook":   -4,
+// 	"white queen":  5,
+// 	"black queen":  -5,
+// 	"white king":   6,
+// 	"black king":   -6,
+// }
+
+var PieceEncoding = map[int]string{
+	0:  "0",
+	1:  "♙",
+	-1: "♟️",
+	2:  "♘",
+	-2: "♞",
+	3:  "♗",
+	-3: "♝",
+	4:  "♖",
+	-4: "♜",
+	5:  "♕",
+	-5: "♛",
+	6:  "♔",
+	-6: "♚",
 }
 
 func RemoveElement(slice []int, value int) []int {

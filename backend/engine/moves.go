@@ -140,9 +140,9 @@ func GetPieceAttackSquares(boardState utils.BoardState, pos int) ([]int, int) {
 			attackedSquares = append(attackedSquares, moveRightIndex)
 		}
 	}
-
-
-
-
 	return attackedSquares, piece
+}
+
+func MakeMove (move string, color string, board []int) {
+	
 }
